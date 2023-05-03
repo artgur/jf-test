@@ -13,7 +13,7 @@ properties([
                     classpath: [],
                     sandbox: false,
                     script:
-                        ```
+                        '''
                         def getBranchNames(projectName){
                             def branches = []
                             Jenkins.instance.getAllItems(org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject).each { multiBranch ->
@@ -25,7 +25,7 @@ properties([
                             }
                             branches.unique();
                         }
-                        ```
+                        '''
                 ],
                 script: [
                     classpath: [],

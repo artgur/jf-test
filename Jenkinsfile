@@ -14,6 +14,8 @@ properties([
                     sandbox: false,
                     script:
                         '''
+                        import jenkins.model.Jenkins
+
                         def getBranchNames(projectName){
                             def branches = []
                             Jenkins.instance.getAllItems(org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject).each { multiBranch ->

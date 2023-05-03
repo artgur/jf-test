@@ -81,7 +81,7 @@ properties([
                             builds.unique();
 
                         }
-                  getSuccessfulBuilds("Builds", "HCS_RELEASE", Branch)
+                        getSuccessfulBuilds("Builds", "HCS_RELEASE", Branch)
                         '''
                 ]
             ]

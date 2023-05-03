@@ -82,23 +82,12 @@ properties([
 
                         }
                         //https://stackoverflow.com/posts/7727217/revisions
-                        def versionComparator(versions) {
-                          versions.sort {a, b ->
-                            // очень грязный хак, исправь меня
-                            def a1, b1
-                            if (a.matches('^master.+')) {
-                               a1 = a.split('master')[1].split('b')[0].tokenize('._#')*.toInteger()
-                               b1 = b.split('master')[1].split('b')[0].tokenize('._#')*.toInteger()
-                            } else {
-                               a1 = a.split('b')[0].tokenize('._#')*.toInteger()
-                               b1 = b.split('b')[0].tokenize('._#')*.toInteger()
-                            }
-                            for (i in 0..<[a1.size(), b1.size()].min())
-                              if (a1[i] != b1[i]) return a1[i] <=> b1[i]
-                            0
+                        def МbuildComparator(builds) {
+                          builds.sort {a, b ->
+                            return a.tokenize('_#')[1].toInteger() <=> b.tokenize('_#')[1].toInteger()
                           }
                         }
-                        return versionComparator(getSuccessfulBuilds("Builds", "HCS_RELEASE", Branch)).sort().reverse()
+                        return versionComparator(getSuccessfulBuilds("Builds", "HCS_RELEASE", Branch)).reverse()
                         '''
                 ]
             ]

@@ -121,7 +121,7 @@ pipeline {
     stages {
         stage("Setting BuildName") {
             steps {
-              echo "Hello World"
             }
         }
+    }
 }

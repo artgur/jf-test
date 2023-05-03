@@ -82,7 +82,7 @@ properties([
 
                         }
                         //https://stackoverflow.com/posts/7727217/revisions
-                        def МbuildComparator(builds) {
+                        def buildComparator(builds) {
                           builds.sort {a, b ->
                             return a.tokenize('_#')[1].toInteger() <=> b.tokenize('_#')[1].toInteger()
                           }

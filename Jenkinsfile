@@ -13,7 +13,19 @@ properties([
                     classpath: [],
                     sandbox: false,
                     script:
-                        'return["Could not get Branch"]'
+                        ```
+                        def getBranchNames(projectName){
+                            def branches = []
+                            Jenkins.instance.getAllItems(org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject).each { multiBranch ->
+                              if (multiBranch.fullName == projectName ) {
+                                  multiBranch.allJobs.each { job ->
+                                    branches.add(job)
+                                  }
+                              }
+                            }
+                            branches.unique();
+                        }
+                        ```
                 ],
                 script: [
                     classpath: [],

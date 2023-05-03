@@ -117,8 +117,6 @@ pipeline {
         timestamps ()
         parallelsAlwaysFailFast()
     }
-    environment {
-    }
     stages {
         stage("Setting BuildName") {
             steps {

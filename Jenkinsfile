@@ -112,6 +112,7 @@ properties([
 ])
 
 pipeline {
+    agent any
     options {
         timestamps ()
         parallelsAlwaysFailFast()

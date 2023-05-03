@@ -13,22 +13,7 @@ properties([
                     classpath: [],
                     sandbox: false,
                     script:
-                        '''
-                        import jenkins.model.Jenkins
-
-                        def getBranchNames(projectName){
-                            def branches = []
-                            Jenkins.instance.getAllItems(org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject).each { multiBranch ->
-                              if (multiBranch.fullName == projectName ) {
-                                  multiBranch.allJobs.each { job ->
-                                    branches.add(job)
-                                  }
-                              }
-                            }
-                            branches.unique();
-                        }
-                        return getBranchNames("Builds/HCS_RELEASE").name
-                        '''
+                        'return["Could not get Build"]'
                 ],
                 script: [
                     classpath: [],

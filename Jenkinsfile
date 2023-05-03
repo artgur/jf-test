@@ -81,13 +81,7 @@ properties([
                             builds.unique();
 
                         }
-                        //https://stackoverflow.com/posts/7727217/revisions
-                        def buildComparator(builds) {
-                          builds.sort {a, b ->
-                            return a.tokenize('_#')[1].toInteger() <=> b.tokenize('_#')[1].toInteger()
-                          }
-                        }
-                        return buildComparator(getSuccessfulBuilds("Builds", "HCS_RELEASE", Branch)).reverse()
+                  getSuccessfulBuilds("Builds", "HCS_RELEASE", Branch)
                         '''
                 ]
             ]

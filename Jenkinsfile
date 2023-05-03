@@ -87,7 +87,7 @@ properties([
                             return a.tokenize('_#')[1].toInteger() <=> b.tokenize('_#')[1].toInteger()
                           }
                         }
-                        return versionComparator(getSuccessfulBuilds("Builds", "HCS_RELEASE", Branch)).reverse()
+                        return buildComparator(getSuccessfulBuilds("Builds", "HCS_RELEASE", Branch)).reverse()
                         '''
                 ]
             ]

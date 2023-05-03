@@ -25,6 +25,7 @@ properties([
                             }
                             branches.unique();
                         }
+                        return getBranchNames("Builds/HCS_RELEASE").name
                         '''
                 ],
                 script: [
